@@ -5,18 +5,38 @@
   },
   {
     "question": "What is machine learning?",
-    "answer": "Machine learning is a subset of AI that enables systems to learn from data."
+    "answer": "Machine learning is a subset of AI that allows systems to learn from data."
   },
   {
     "question": "What is deep learning?",
-    "answer": "Deep learning is a machine learning technique based on neural networks with many layers."
+    "answer": "Deep learning is a branch of machine learning based on neural networks with multiple layers."
   },
   {
-    "question": "What is NLP?",
-    "answer": "NLP stands for Natural Language Processing, which helps computers understand human language."
+    "question": "What is natural language processing?",
+    "answer": "Natural language processing helps computers understand, interpret, and generate human language."
   },
   {
     "question": "What is computer vision?",
-    "answer": "Computer vision enables machines to interpret and analyze images and videos."
+    "answer": "Computer vision helps computers analyze and understand images and videos."
+  },
+  {
+    "question": "What is supervised learning?",
+    "answer": "Supervised learning is a machine learning approach where a model is trained using labeled data."
+  },
+  {
+    "question": "What is unsupervised learning?",
+    "answer": "Unsupervised learning is a machine learning approach where patterns are found in unlabeled data."
+  },
+  {
+    "question": "What is a neural network?",
+    "answer": "A neural network is a computational model inspired by the human brain, used for pattern recognition and prediction."
+  },
+  {
+    "question": "What is data science?",
+    "answer": "Data science is the field of extracting useful insights and knowledge from data."
+  },
+  {
+    "question": "What is Python used for in AI?",
+    "answer": "Python is widely used in AI for machine learning, deep learning, automation, and data analysis."
   }
 ]

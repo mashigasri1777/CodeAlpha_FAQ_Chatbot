@@ -1,14 +1,8 @@
 from flask import Flask, render_template, request, jsonify
 import json
 import string
-import nltk
-from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-
-nltk.download("punkt")
-nltk.download("stopwords")
 
 app = Flask(__name__)
 
@@ -18,18 +12,14 @@ with open("faq_data.json", "r", encoding="utf-8") as f:
 questions = [item["question"] for item in faq_data]
 answers = [item["answer"] for item in faq_data]
 
-stop_words = set(stopwords.words("english"))
-
 def preprocess_text(text):
     text = text.lower()
     text = text.translate(str.maketrans("", "", string.punctuation))
-    tokens = word_tokenize(text)
-    filtered_tokens = [word for word in tokens if word not in stop_words]
-    return " ".join(filtered_tokens)
+    return text
 
 processed_questions = [preprocess_text(q) for q in questions]
 
-vectorizer = TfidfVectorizer()
+vectorizer = TfidfVectorizer(stop_words="english")
 question_vectors = vectorizer.fit_transform(processed_questions)
 
 @app.route("/")

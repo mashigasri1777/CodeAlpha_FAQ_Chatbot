@@ -1,0 +1,22 @@
+[
+  {
+    "question": "What is artificial intelligence?",
+    "answer": "Artificial intelligence is the simulation of human intelligence by machines."
+  },
+  {
+    "question": "What is machine learning?",
+    "answer": "Machine learning is a subset of AI that enables systems to learn from data."
+  },
+  {
+    "question": "What is deep learning?",
+    "answer": "Deep learning is a machine learning technique based on neural networks with many layers."
+  },
+  {
+    "question": "What is NLP?",
+    "answer": "NLP stands for Natural Language Processing, which helps computers understand human language."
+  },
+  {
+    "question": "What is computer vision?",
+    "answer": "Computer vision enables machines to interpret and analyze images and videos."
+  }
+]

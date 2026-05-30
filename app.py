@@ -1,6 +1,22 @@
 from flask import Flask, render_template, request, jsonify
 import json
 import string
+import os
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+app = Flask(__name__)
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+faq_path = os.path.join(BASE_DIR, "faq_data.json")
+
+with open(faq_path, "r", encoding="utf-8") as f:
+    faq_data = json.load(f)
+    
+    from flask import Flask, render_template, request, jsonify
+import json
+import string
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 

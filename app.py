@@ -6,14 +6,14 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 app = Flask(__name__)
 
-# Load FAQ dataset
+# Load FAQ Data
 with open("faq_data.json", "r", encoding="utf-8") as f:
     faq_data = json.load(f)
 
 questions = [item["question"] for item in faq_data]
 answers = [item["answer"] for item in faq_data]
 
-# Text preprocessing
+# Text Preprocessing
 def preprocess_text(text):
     text = text.lower()
     text = text.translate(str.maketrans("", "", string.punctuation))
@@ -33,6 +33,7 @@ def home():
 def ask():
 
     data = request.get_json()
+
     user_question = data.get("question", "").strip()
 
     if not user_question:
@@ -41,10 +42,37 @@ def ask():
             "confidence": 0
         })
 
+    # Preprocess user input
     processed_input = preprocess_text(user_question)
 
+    # Convert to vector
     user_vector = vectorizer.transform([processed_input])
 
+    # Calculate similarity
     similarity_scores = cosine_similarity(
         user_vector,
-       
+        question_vectors
+    )
+
+    # Best match
+    best_match_index = similarity_scores.argmax()
+    best_score = similarity_scores[0][best_match_index]
+
+    confidence = round(best_score * 100, 2)
+
+    # Fallback response
+    if best_score < 0.20:
+        return jsonify({
+            "answer": "Sorry, I couldn't find a matching FAQ. Try asking about Artificial Intelligence, Machine Learning, Deep Learning, NLP, Python, Data Science, Computer Vision, or Neural Networks.",
+            "confidence": confidence,
+            "matched_question": "No Match Found"
+        })
+
+    return jsonify({
+        "answer": answers[best_match_index],
+        "confidence": confidence,
+        "matched_question": questions[best_match_index]
+    })
+
+if __name__ == "__main__":
+    app.run(debug=True)

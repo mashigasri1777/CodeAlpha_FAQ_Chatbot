@@ -1,20 +1,80 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FAQ Chatbot</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InsightFAQ | AI FAQ Assistant</title>
+
+```
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet">
+```
+
 </head>
+
 <body>
-  <div class="chat-container">
-    <h1>FAQ Chatbot</h1>
-    <div id="chat-box" class="chat-box"></div>
-    <div class="input-area">
-      <input type="text" id="user-input" placeholder="Ask a question..." />
-      <button onclick="sendMessage()">Send</button>
+
+<div class="main-container">
+
+```
+<div class="chat-container">
+
+    <div class="header">
+
+        <h1>InsightFAQ</h1>
+
+        <p>AI-Powered FAQ Assistant</p>
+
     </div>
-  </div>
-  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    <div id="chat-box" class="chat-box">
+
+        <div class="bot-message welcome">
+
+            <strong>Hello! 👋</strong><br><br>
+
+            I can answer questions about:
+
+            <ul>
+                <li>Artificial Intelligence</li>
+                <li>Machine Learning</li>
+                <li>Deep Learning</li>
+                <li>Natural Language Processing</li>
+                <li>Python for AI</li>
+            </ul>
+
+            Ask me anything.
+
+        </div>
+
+    </div>
+
+    <div class="input-area">
+
+        <input
+            type="text"
+            id="user-input"
+            placeholder="Ask a question...">
+
+        <button onclick="sendMessage()">
+
+            Send
+
+        </button>
+
+    </div>
+
+</div>
+```
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
 </body>
 </html>
+

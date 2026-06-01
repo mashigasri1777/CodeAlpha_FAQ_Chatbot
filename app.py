@@ -1,97 +1,236 @@
-from flask import Flask, render_template, request, jsonify
-import json
-import os
-import string
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
-
-app = Flask(**name**)
-
-# Load FAQ data
-
-BASE_DIR = os.path.dirname(os.path.abspath(**file**))
-FAQ_FILE = os.path.join(BASE_DIR, "faq_data.json")
-
-with open(FAQ_FILE, "r", encoding="utf-8") as f:
-faq_data = json.load(f)
-
-questions = [item["question"] for item in faq_data]
-answers = [item["answer"] for item in faq_data]
-
-# Preprocessing
-
-def preprocess_text(text):
-text = text.lower()
-text = text.translate(
-str.maketrans("", "", string.punctuation)
-)
-return text
-
-processed_questions = [
-preprocess_text(q)
-for q in questions
-]
-
-vectorizer = TfidfVectorizer(
-stop_words="english"
-)
-
-question_vectors = vectorizer.fit_transform(
-processed_questions
-)
-
-@app.route("/")
-def home():
-return render_template("index.html")
-
-@app.route("/ask", methods=["POST"])
-def ask():
+body{
+font-family:'Segoe UI',sans-serif;
+min-height:100vh;
 
 ```
-data = request.get_json()
+background:
+linear-gradient(
+135deg,
+#2B2D42,
+#3A405A
+);
 
-question = data.get(
-    "question",
-    ""
-).strip()
+display:flex;
+justify-content:center;
+align-items:center;
 
-if not question:
-
-    return jsonify({
-        "answer": "Please enter a question."
-    })
-
-processed_input = preprocess_text(
-    question
-)
-
-user_vector = vectorizer.transform(
-    [processed_input]
-)
-
-similarity = cosine_similarity(
-    user_vector,
-    question_vectors
-)
-
-best_match = similarity.argmax()
-
-score = similarity[0][best_match]
-
-if score < 0.20:
-
-    return jsonify({
-        "answer":
-        "Sorry, I couldn't find a matching answer. Try asking about AI, Machine Learning, NLP, Deep Learning, Python or Computer Vision."
-    })
-
-return jsonify({
-    "answer":
-    answers[best_match]
-})
+padding:30px;
 ```
 
-if **name** == "**main**":
-app.run(debug=True)
+}
+
+.chat-card{
+
+```
+width:100%;
+max-width:700px;
+
+background:white;
+
+border-radius:25px;
+
+padding:30px;
+
+box-shadow:
+0 20px 50px rgba(0,0,0,.25);
+```
+
+}
+
+.chat-header{
+
+```
+text-align:center;
+
+margin-bottom:25px;
+```
+
+}
+
+.chat-header h1{
+
+```
+color:#2B2D42;
+
+font-size:38px;
+
+font-weight:800;
+
+margin-bottom:8px;
+```
+
+}
+
+.chat-header p{
+
+```
+color:#6F4E37;
+
+font-size:16px;
+```
+
+}
+
+.chat-box{
+
+```
+height:450px;
+
+overflow-y:auto;
+
+background:#f8f8f8;
+
+border-radius:20px;
+
+padding:20px;
+
+margin-bottom:20px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:15px;
+```
+
+}
+
+.user-message{
+
+```
+align-self:flex-end;
+
+background:#D4A373;
+
+color:#2B2D42;
+
+padding:14px 18px;
+
+border-radius:18px;
+
+max-width:75%;
+
+font-size:15px;
+```
+
+}
+
+.bot-message{
+
+```
+align-self:flex-start;
+
+background:#592720;
+
+color:white;
+
+padding:14px 18px;
+
+border-radius:18px;
+
+max-width:75%;
+
+line-height:1.6;
+```
+
+}
+
+.input-area{
+
+```
+display:flex;
+
+gap:12px;
+```
+
+}
+
+.input-area input{
+
+```
+flex:1;
+
+padding:15px;
+
+border:none;
+
+background:#f3f3f3;
+
+border-radius:15px;
+
+font-size:16px;
+
+outline:none;
+```
+
+}
+
+.send-btn{
+
+```
+background:#6F4E37;
+
+color:white;
+
+border:none;
+
+border-radius:15px;
+
+padding:15px 28px;
+
+cursor:pointer;
+
+font-weight:700;
+
+font-size:16px;
+
+transition:.3s;
+```
+
+}
+
+.send-btn:hover{
+
+```
+background:#592720;
+```
+
+}
+
+ul{
+
+```
+margin-top:10px;
+margin-left:20px;
+```
+
+}
+
+@media(max-width:768px){
+
+```
+.chat-card{
+
+    padding:20px;
+}
+
+.chat-header h1{
+
+    font-size:30px;
+}
+
+.chat-box{
+
+    height:400px;
+}
+```
+
+}
+
 

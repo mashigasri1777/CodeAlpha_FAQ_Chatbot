@@ -1,142 +1,78 @@
 async function sendMessage() {
 
-```
-const input =
-    document.getElementById("user-input");
+    const input =
+        document.getElementById("user-input");
 
-const chatBox =
-    document.getElementById("chat-box");
+    const chatBox =
+        document.getElementById("chat-box");
 
-const question =
-    input.value.trim();
+    const question =
+        input.value.trim();
 
-if (!question) return;
+    if (!question) return;
 
-// User Message
+    chatBox.innerHTML += `
+        <div class="user-message">
+            ${question}
+        </div>
+    `;
 
-chatBox.innerHTML += `
-    <div class="user-message">
-        ${question}
-    </div>
-`;
+    input.value = "";
 
-input.value = "";
+    chatBox.scrollTop =
+        chatBox.scrollHeight;
 
-chatBox.scrollTop =
-    chatBox.scrollHeight;
+    try {
 
-// Typing Indicator
+        const response =
+            await fetch("/ask", {
 
-const typingId =
-    "typing-" + Date.now();
+                method: "POST",
 
-chatBox.innerHTML += `
-    <div class="bot-message"
-         id="${typingId}">
-        Typing...
-    </div>
-`;
+                headers: {
+                    "Content-Type":
+                    "application/json"
+                },
 
-chatBox.scrollTop =
-    chatBox.scrollHeight;
+                body: JSON.stringify({
+                    question: question
+                })
 
-try {
+            });
 
-    const response =
-        await fetch("/ask", {
+        const data =
+            await response.json();
 
-            method: "POST",
+        chatBox.innerHTML += `
+            <div class="bot-message">
+                ${data.answer}
+            </div>
+        `;
 
-            headers: {
-                "Content-Type":
-                "application/json"
-            },
+        chatBox.scrollTop =
+            chatBox.scrollHeight;
 
-            body: JSON.stringify({
-                question: question
-            })
-
-        });
-
-    const data =
-        await response.json();
-
-    // Small delay for chatbot feel
-
-    await new Promise(resolve =>
-        setTimeout(resolve, 800)
-    );
-
-    document
-        .getElementById(typingId)
-        .remove();
-
-    let confidenceText = "";
-
-    if (data.confidence) {
-
-        confidenceText =
-            `<br><small>
-            Confidence:
-            ${data.confidence}%
-            </small>`;
     }
 
-    chatBox.innerHTML += `
-        <div class="bot-message">
-            ${data.answer}
-            ${confidenceText}
-        </div>
-    `;
+    catch (error) {
 
-    chatBox.scrollTop =
-        chatBox.scrollHeight;
+        console.error(error);
 
+        chatBox.innerHTML += `
+            <div class="bot-message">
+                Server error. Please try again.
+            </div>
+        `;
+    }
 }
-
-catch (error) {
-
-    document
-        .getElementById(typingId)
-        .remove();
-
-    chatBox.innerHTML += `
-        <div class="bot-message">
-            Sorry, something went wrong.
-        </div>
-    `;
-
-    chatBox.scrollTop =
-        chatBox.scrollHeight;
-}
-```
-
-}
-
-// Enter key support
 
 document
 .getElementById("user-input")
-.addEventListener("keypress",
-function(event){
+.addEventListener("keypress", function(event){
 
-```
-if(event.key === "Enter"){
+    if(event.key === "Enter"){
 
-    sendMessage();
-}
-```
+        sendMessage();
+    }
 
 });
-
-// Auto focus input
-
-window.onload = function(){
-
-```
-document
-.getElementById("user-input")
-.focus();
-```
-
-};

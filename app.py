@@ -1,236 +1,108 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+from flask import Flask, render_template, request, jsonify
+import json
+import os
+import string
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 
-body{
-font-family:'Segoe UI',sans-serif;
-min-height:100vh;
+app = Flask(**name**)
 
-```
-background:
-linear-gradient(
-135deg,
-#2B2D42,
-#3A405A
-);
+faq_data = []
 
-display:flex;
-justify-content:center;
-align-items:center;
-
-padding:30px;
-```
-
-}
-
-.chat-card{
+try:
+base_dir = os.path.dirname(os.path.abspath(**file**))
+faq_path = os.path.join(base_dir, "faq_data.json")
 
 ```
-width:100%;
-max-width:700px;
-
-background:white;
-
-border-radius:25px;
-
-padding:30px;
-
-box-shadow:
-0 20px 50px rgba(0,0,0,.25);
+with open(faq_path, "r", encoding="utf-8") as file:
+    faq_data = json.load(file)
 ```
 
-}
+except Exception as e:
+print("FAQ Loading Error:", e)
 
-.chat-header{
+questions = [item["question"] for item in faq_data]
+answers = [item["answer"] for item in faq_data]
 
-```
-text-align:center;
+def preprocess_text(text):
+text = text.lower()
+text = text.translate(str.maketrans('', '', string.punctuation))
+return text
 
-margin-bottom:25px;
-```
-
-}
-
-.chat-header h1{
-
-```
-color:#2B2D42;
-
-font-size:38px;
-
-font-weight:800;
-
-margin-bottom:8px;
-```
-
-}
-
-.chat-header p{
+if questions:
+processed_questions = [
+preprocess_text(q)
+for q in questions
+]
 
 ```
-color:#6F4E37;
+vectorizer = TfidfVectorizer(stop_words="english")
 
-font-size:16px;
+question_vectors = vectorizer.fit_transform(
+    processed_questions
+)
 ```
 
-}
+else:
+vectorizer = None
+question_vectors = None
 
-.chat-box{
+@app.route("/")
+def home():
+return render_template("index.html")
 
-```
-height:450px;
-
-overflow-y:auto;
-
-background:#f8f8f8;
-
-border-radius:20px;
-
-padding:20px;
-
-margin-bottom:20px;
-
-display:flex;
-
-flex-direction:column;
-
-gap:15px;
-```
-
-}
-
-.user-message{
+@app.route("/ask", methods=["POST"])
+def ask():
 
 ```
-align-self:flex-end;
+if not vectorizer:
+    return jsonify({
+        "answer":
+        "FAQ database could not be loaded. Check faq_data.json and redeploy."
+    })
 
-background:#D4A373;
+data = request.get_json()
 
-color:#2B2D42;
+user_question = data.get(
+    "question",
+    ""
+).strip()
 
-padding:14px 18px;
+if not user_question:
+    return jsonify({
+        "answer":
+        "Please enter a question."
+    })
 
-border-radius:18px;
+processed_input = preprocess_text(
+    user_question
+)
 
-max-width:75%;
+user_vector = vectorizer.transform(
+    [processed_input]
+)
 
-font-size:15px;
+similarity_scores = cosine_similarity(
+    user_vector,
+    question_vectors
+)
+
+best_match_index = similarity_scores.argmax()
+
+best_score = similarity_scores[0][best_match_index]
+
+if best_score < 0.15:
+    return jsonify({
+        "answer":
+        "Sorry, I couldn't find a relevant answer. Try asking about AI, Machine Learning, NLP, Deep Learning, Python, Neural Networks, Data Science, or Computer Vision."
+    })
+
+return jsonify({
+    "answer":
+    answers[best_match_index]
+})
 ```
 
-}
-
-.bot-message{
-
-```
-align-self:flex-start;
-
-background:#592720;
-
-color:white;
-
-padding:14px 18px;
-
-border-radius:18px;
-
-max-width:75%;
-
-line-height:1.6;
-```
-
-}
-
-.input-area{
-
-```
-display:flex;
-
-gap:12px;
-```
-
-}
-
-.input-area input{
-
-```
-flex:1;
-
-padding:15px;
-
-border:none;
-
-background:#f3f3f3;
-
-border-radius:15px;
-
-font-size:16px;
-
-outline:none;
-```
-
-}
-
-.send-btn{
-
-```
-background:#6F4E37;
-
-color:white;
-
-border:none;
-
-border-radius:15px;
-
-padding:15px 28px;
-
-cursor:pointer;
-
-font-weight:700;
-
-font-size:16px;
-
-transition:.3s;
-```
-
-}
-
-.send-btn:hover{
-
-```
-background:#592720;
-```
-
-}
-
-ul{
-
-```
-margin-top:10px;
-margin-left:20px;
-```
-
-}
-
-@media(max-width:768px){
-
-```
-.chat-card{
-
-    padding:20px;
-}
-
-.chat-header h1{
-
-    font-size:30px;
-}
-
-.chat-box{
-
-    height:400px;
-}
-```
-
-}
-
+if **name** == "**main**":
+app.run(debug=True)
 

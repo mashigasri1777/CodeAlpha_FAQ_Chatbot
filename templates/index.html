@@ -3,15 +3,11 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InsightFAQ | AI FAQ Assistant</title>
 
 ```
-<meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-
-<title>InsightFAQ | AI FAQ Assistant</title>
-
 <link rel="stylesheet"
       href="{{ url_for('static', filename='css/style.css') }}">
 
@@ -23,69 +19,60 @@
 
 <body>
 
-```
 <div class="chat-card">
 
-    <div class="chat-header">
+```
+<div class="chat-header">
+    <h1>InsightFAQ</h1>
+    <p>AI Powered FAQ Assistant</p>
+</div>
 
-        <h1>InsightFAQ</h1>
+<div id="chat-box" class="chat-box">
 
-        <p>AI Powered FAQ Assistant</p>
+    <div class="welcome-box">
 
-    </div>
+        <h3>Welcome 👋</h3>
 
-    <div id="chat-box"
-         class="chat-box">
+        <p>
+            Ask me questions about:
+        </p>
 
-        <div class="welcome-box">
-
-            <strong>Hello! 👋</strong>
-
-            <br><br>
-
-            I can answer questions about:
-
-            <ul>
-                <li>Artificial Intelligence</li>
-                <li>Machine Learning</li>
-                <li>Deep Learning</li>
-                <li>Natural Language Processing</li>
-                <li>Computer Vision</li>
-                <li>Data Science</li>
-                <li>Python for AI</li>
-            </ul>
-
-            <br>
-
-            Ask me anything related to AI.
-
-        </div>
-
-    </div>
-
-    <div class="input-area">
-
-        <input
-            type="text"
-            id="user-input"
-            placeholder="Ask a question about AI...">
-
-        <button
-            class="send-btn"
-            onclick="sendMessage()">
-
-            Send
-
-        </button>
+        <ul>
+            <li>Artificial Intelligence</li>
+            <li>Machine Learning</li>
+            <li>Deep Learning</li>
+            <li>Natural Language Processing</li>
+            <li>Computer Vision</li>
+            <li>Data Science</li>
+            <li>Python for AI</li>
+        </ul>
 
     </div>
 
 </div>
 
-<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<div class="input-area">
+
+    <input
+        type="text"
+        id="user-input"
+        placeholder="Ask a question about AI..."
+    >
+
+    <button
+        class="send-btn"
+        onclick="sendMessage()">
+
+        Send
+
+    </button>
+
+</div>
 ```
 
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
 </body>
-
 </html>
-

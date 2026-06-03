@@ -5,138 +5,18 @@
   },
   {
     "question": "What is machine learning?",
-    "answer": "Machine learning is a subset of AI that allows systems to learn from data."
+    "answer": "Machine learning is a subset of artificial intelligence that learns from data."
   },
   {
     "question": "What is deep learning?",
-    "answer": "Deep learning is a branch of machine learning based on neural networks with multiple layers."
+    "answer": "Deep learning is a branch of machine learning based on neural networks."
   },
   {
     "question": "What is natural language processing?",
-    "answer": "Natural language processing helps computers understand, interpret, and generate human language."
+    "answer": "Natural language processing helps computers understand human language."
   },
   {
     "question": "What is computer vision?",
-    "answer": "Computer vision helps computers analyze and understand images and videos."
-  },
-  {
-    "question": "What is supervised learning?",
-    "answer": "Supervised learning is a machine learning approach where a model is trained using labeled data."
-  },
-  {
-    "question": "What is unsupervised learning?",
-    "answer": "Unsupervised learning is a machine learning approach where patterns are found in unlabeled data."
-  },
-  {
-    "question": "What is a neural network?",
-    "answer": "A neural network is a computational model inspired by the human brain, used for pattern recognition and prediction."
-  },
-  {
-    "question": "What is data science?",
-    "answer": "Data science is the field of extracting useful insights and knowledge from data."
-  },
-  {
-    "question": "What is Python used for in AI?",
-    "answer": "Python is widely used in AI for machine learning, deep learning, automation, and data analysis."
-  },
-  {
-"question": "What is reinforcement learning?",
-"answer": "Reinforcement learning is a type of machine learning where an agent learns by interacting with an environment and receiving rewards or penalties."
-},
-{
-"question": "What is a chatbot?",
-"answer": "A chatbot is a software application that simulates human conversation using text or voice interactions."
-},
-{
-"question": "What are the applications of artificial intelligence?",
-"answer": "AI is used in healthcare, finance, education, transportation, robotics, and customer service."
-},
-{
-"question": "What are the advantages of artificial intelligence?",
-"answer": "AI can automate tasks, improve accuracy, increase efficiency, and provide data-driven insights."
-},
-{
-"question": "What are the disadvantages of artificial intelligence?",
-"answer": "AI can be expensive, may cause job displacement, and can raise privacy and ethical concerns."
-},
-{
-"question": "What is a dataset?",
-"answer": "A dataset is a collection of related data used for training, testing, and evaluating machine learning models."
-},
-{
-"question": "What is training data?",
-"answer": "Training data is the data used to teach a machine learning model how to make predictions."
-},
-{
-"question": "What is testing data?",
-"answer": "Testing data is used to evaluate the performance of a trained machine learning model."
-},
-{
-"question": "What is overfitting?",
-"answer": "Overfitting occurs when a model learns training data too well and performs poorly on unseen data."
-},
-{
-"question": "What is underfitting?",
-"answer": "Underfitting occurs when a model fails to learn important patterns from the training data."
-},
-{
-"question": "What is a feature in machine learning?",
-"answer": "A feature is an individual measurable property or characteristic used as input for a machine learning model."
-},
-{
-"question": "What is classification in machine learning?",
-"answer": "Classification is the process of predicting a category or class label for input data."
-},
-{
-"question": "What is regression in machine learning?",
-"answer": "Regression is a machine learning technique used to predict continuous numerical values."
-},
-{
-"question": "What is clustering?",
-"answer": "Clustering is an unsupervised learning technique that groups similar data points together."
-},
-{
-"question": "What is TensorFlow?",
-"answer": "TensorFlow is an open-source machine learning framework developed by Google."
-},
-{
-"question": "What is Keras?",
-"answer": "Keras is a high-level deep learning library that simplifies building neural networks."
-},
-{
-"question": "What is scikit-learn?",
-"answer": "Scikit-learn is a Python library that provides tools for machine learning and data analysis."
-},
-{
-"question": "What is NumPy?",
-"answer": "NumPy is a Python library used for numerical computing and array operations."
-},
-{
-"question": "What is Pandas?",
-"answer": "Pandas is a Python library used for data manipulation and analysis."
-},
-{
-"question": "What is big data?",
-"answer": "Big data refers to extremely large and complex datasets that require advanced processing techniques."
-},
-{
-"question": "What is data mining?",
-"answer": "Data mining is the process of discovering useful patterns and knowledge from large datasets."
-},
-{
-"question": "What is robotics?",
-"answer": "Robotics is the field of designing, building, and operating intelligent machines called robots."
-},
-{
-"question": "What is an expert system?",
-"answer": "An expert system is an AI program that mimics the decision-making ability of a human expert."
-},
-{
-"question": "What is speech recognition?",
-"answer": "Speech recognition is the technology that converts spoken language into text."
-},
-{
-"question": "What is generative AI?",
-"answer": "Generative AI creates new content such as text, images, audio, and videos based on learned patterns."
-}
+    "answer": "Computer vision helps computers understand images and videos."
+  }
 ]

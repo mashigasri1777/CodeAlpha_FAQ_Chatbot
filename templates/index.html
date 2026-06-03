@@ -1,78 +1,83 @@
+```html
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InsightFAQ | AI FAQ Assistant</title>
 
-```
-<link rel="stylesheet"
-      href="{{ url_for('static', filename='css/style.css') }}">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet">
-```
+    <title>InsightFAQ</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
 
 </head>
 
 <body>
 
-<div class="chat-card">
+    <div class="chat-card">
 
-```
-<div class="chat-header">
-    <h1>InsightFAQ</h1>
-    <p>AI Powered FAQ Assistant</p>
-</div>
+        <div class="chat-header">
 
-<div id="chat-box" class="chat-box">
+            <h1>InsightFAQ</h1>
 
-    <div class="welcome-box">
+            <p>AI Powered FAQ Assistant</p>
 
-        <h3>Welcome 👋</h3>
+        </div>
 
-        <p>
-            Ask me questions about:
-        </p>
+        <div id="chat-box" class="chat-box">
 
-        <ul>
-            <li>Artificial Intelligence</li>
-            <li>Machine Learning</li>
-            <li>Deep Learning</li>
-            <li>Natural Language Processing</li>
-            <li>Computer Vision</li>
-            <li>Data Science</li>
-            <li>Python for AI</li>
-        </ul>
+            <div class="welcome-box">
+
+                <h3>Hello! 👋</h3>
+
+                <p>I can answer questions about:</p>
+
+                <ul>
+                    <li>Artificial Intelligence</li>
+                    <li>Machine Learning</li>
+                    <li>Deep Learning</li>
+                    <li>Natural Language Processing</li>
+                    <li>Computer Vision</li>
+                    <li>Python for AI</li>
+                </ul>
+
+                <p>
+                    Ask me anything.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="input-area">
+
+            <input
+                type="text"
+                id="user-input"
+                placeholder="Ask a question about AI..."
+                autocomplete="off">
+
+            <button
+                class="send-btn"
+                type="button"
+                onclick="sendMessage()">
+
+                Send
+
+            </button>
+
+        </div>
 
     </div>
 
-</div>
-
-<div class="input-area">
-
-    <input
-        type="text"
-        id="user-input"
-        placeholder="Ask a question about AI..."
-    >
-
-    <button
-        class="send-btn"
-        onclick="sendMessage()">
-
-        Send
-
-    </button>
-
-</div>
-```
-
-</div>
-
-<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static',
+    filename='js/script.js') }}"></script>
 
 </body>
+
 </html>
+```

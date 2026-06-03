@@ -5,18 +5,198 @@
   },
   {
     "question": "What is machine learning?",
-    "answer": "Machine learning is a subset of artificial intelligence that learns from data."
+    "answer": "Machine learning is a subset of AI that enables systems to learn from data."
   },
   {
     "question": "What is deep learning?",
-    "answer": "Deep learning is a branch of machine learning based on neural networks."
+    "answer": "Deep learning is a branch of machine learning that uses neural networks with multiple layers."
   },
   {
     "question": "What is natural language processing?",
-    "answer": "Natural language processing helps computers understand human language."
+    "answer": "Natural language processing enables computers to understand and process human language."
   },
   {
     "question": "What is computer vision?",
-    "answer": "Computer vision helps computers understand images and videos."
+    "answer": "Computer vision enables computers to interpret and analyze visual information."
+  },
+  {
+    "question": "What is data science?",
+    "answer": "Data science involves extracting knowledge and insights from data using scientific methods."
+  },
+  {
+    "question": "What is supervised learning?",
+    "answer": "Supervised learning trains models using labeled data."
+  },
+  {
+    "question": "What is unsupervised learning?",
+    "answer": "Unsupervised learning identifies patterns in unlabeled data."
+  },
+  {
+    "question": "What is reinforcement learning?",
+    "answer": "Reinforcement learning teaches agents through rewards and penalties."
+  },
+  {
+    "question": "What is a neural network?",
+    "answer": "A neural network is a computational model inspired by the human brain."
+  },
+  {
+    "question": "What is TensorFlow?",
+    "answer": "TensorFlow is an open-source machine learning framework developed by Google."
+  },
+  {
+    "question": "What is Keras?",
+    "answer": "Keras is a high-level deep learning API used for building neural networks."
+  },
+  {
+    "question": "What is Python used for in AI?",
+    "answer": "Python is widely used for machine learning, deep learning, automation, and data analysis."
+  },
+  {
+    "question": "What is a chatbot?",
+    "answer": "A chatbot is a software application that simulates human conversation."
+  },
+  {
+    "question": "What is generative AI?",
+    "answer": "Generative AI creates new content such as text, images, audio, and videos."
+  },
+  {
+    "question": "What is robotics?",
+    "answer": "Robotics is the field of designing and developing intelligent machines called robots."
+  },
+  {
+    "question": "What is speech recognition?",
+    "answer": "Speech recognition converts spoken language into text."
+  },
+  {
+    "question": "What is data mining?",
+    "answer": "Data mining is the process of discovering useful patterns from large datasets."
+  },
+  {
+    "question": "What is big data?",
+    "answer": "Big data refers to extremely large datasets that require advanced processing methods."
+  },
+  {
+    "question": "What is a dataset?",
+    "answer": "A dataset is a collection of related data used for analysis and model training."
+  },
+  {
+    "question": "What is training data?",
+    "answer": "Training data is used to teach machine learning models."
+  },
+  {
+    "question": "What is testing data?",
+    "answer": "Testing data is used to evaluate the performance of machine learning models."
+  },
+  {
+    "question": "What is overfitting?",
+    "answer": "Overfitting occurs when a model learns the training data too well and performs poorly on new data."
+  },
+  {
+    "question": "What is underfitting?",
+    "answer": "Underfitting occurs when a model fails to capture important patterns in the data."
+  },
+  {
+    "question": "What is classification?",
+    "answer": "Classification predicts predefined categories or labels."
+  },
+  {
+    "question": "What is regression?",
+    "answer": "Regression predicts continuous numerical values."
+  },
+  {
+    "question": "What is clustering?",
+    "answer": "Clustering groups similar data points together."
+  },
+  {
+    "question": "What is NumPy?",
+    "answer": "NumPy is a Python library used for numerical computations and array operations."
+  },
+  {
+    "question": "What is Pandas?",
+    "answer": "Pandas is a Python library used for data manipulation and analysis."
+  },
+  {
+    "question": "What is OpenAI?",
+    "answer": "OpenAI is an AI research organization that develops advanced artificial intelligence technologies."
+  },
+  {
+    "question": "What is ChatGPT?",
+    "answer": "ChatGPT is an AI chatbot developed by OpenAI that can understand and generate human-like text."
+  },
+  {
+    "question": "What are the applications of AI?",
+    "answer": "AI is used in healthcare, finance, education, transportation, cybersecurity, and customer service."
+  },
+  {
+    "question": "What are the advantages of AI?",
+    "answer": "AI improves efficiency, automates repetitive tasks, and supports data-driven decisions."
+  },
+  {
+    "question": "What are the disadvantages of AI?",
+    "answer": "AI can be expensive, raise ethical concerns, and may replace some jobs."
+  },
+  {
+    "question": "What is an expert system?",
+    "answer": "An expert system is an AI application that mimics human expert decision-making."
+  },
+  {
+    "question": "What is automation?",
+    "answer": "Automation uses technology to perform tasks with minimal human intervention."
+  },
+  {
+    "question": "What is predictive analytics?",
+    "answer": "Predictive analytics uses data and machine learning to forecast future outcomes."
+  },
+  {
+    "question": "What is a feature in machine learning?",
+    "answer": "A feature is an individual measurable characteristic used as input to a machine learning model."
+  },
+  {
+    "question": "What is model training?",
+    "answer": "Model training is the process of teaching a machine learning model using data."
+  },
+  {
+    "question": "What is model evaluation?",
+    "answer": "Model evaluation measures how well a machine learning model performs."
+  },
+  {
+    "question": "What is accuracy in machine learning?",
+    "answer": "Accuracy measures the percentage of correct predictions made by a model."
+  },
+  {
+    "question": "What is precision in machine learning?",
+    "answer": "Precision measures how many predicted positive results are actually positive."
+  },
+  {
+    "question": "What is recall in machine learning?",
+    "answer": "Recall measures how many actual positive cases were correctly identified."
+  },
+  {
+    "question": "What is F1 score?",
+    "answer": "F1 score is the harmonic mean of precision and recall."
+  },
+  {
+    "question": "What is artificial neural intelligence?",
+    "answer": "Artificial neural intelligence refers to AI systems built using neural network architectures."
+  },
+  {
+    "question": "What is AI ethics?",
+    "answer": "AI ethics focuses on responsible and fair development and use of artificial intelligence."
+  },
+  {
+    "question": "What is explainable AI?",
+    "answer": "Explainable AI makes AI decisions understandable and transparent to humans."
+  },
+  {
+    "question": "What is transfer learning?",
+    "answer": "Transfer learning uses knowledge gained from one task to improve performance on another task."
+  },
+  {
+    "question": "What is cloud computing?",
+    "answer": "Cloud computing provides computing resources and services over the internet."
+  },
+  {
+    "question": "What is edge computing?",
+    "answer": "Edge computing processes data closer to where it is generated instead of relying entirely on cloud servers."
   }
 ]

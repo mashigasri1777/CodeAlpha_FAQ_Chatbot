@@ -4,7 +4,7 @@ import os
 
 app = Flask(__name__)
 
-# Load FAQ data safely
+# Load FAQ data
 faq_data = []
 
 try:
@@ -20,6 +20,8 @@ try:
     ) as file:
 
         faq_data = json.load(file)
+
+    print(f"Loaded {len(faq_data)} FAQs")
 
 except Exception as e:
 
@@ -38,11 +40,10 @@ def ask():
 
         data = request.get_json()
 
-        user_question = (
-            data.get("question", "")
-            .lower()
-            .strip()
-        )
+        user_question = data.get(
+            "question",
+            ""
+        ).lower().strip()
 
         if not user_question:
 
@@ -51,24 +52,45 @@ def ask():
                 "Please enter a question."
             })
 
+        best_answer = None
+        highest_score = 0
+
+        user_words = set(
+            user_question.split()
+        )
+
         for item in faq_data:
 
-            faq_question = (
-                item["question"]
-                .lower()
-                .strip()
+            faq_question = item[
+                "question"
+            ].lower()
+
+            faq_words = set(
+                faq_question.split()
             )
 
-            if (
-                user_question in faq_question
-                or
-                faq_question in user_question
-            ):
+            common_words = (
+                user_words &
+                faq_words
+            )
 
-                return jsonify({
-                    "answer":
-                    item["answer"]
-                })
+            score = len(
+                common_words
+            )
+
+            if score > highest_score:
+
+                highest_score = score
+                best_answer = item[
+                    "answer"
+                ]
+
+        if highest_score >= 2:
+
+            return jsonify({
+                "answer":
+                best_answer
+            })
 
         return jsonify({
             "answer":

@@ -9,8 +9,7 @@ async function sendMessage() {
     const question =
         input.value.trim();
 
-    if(question === "")
-        return;
+    if (!question) return;
 
     chatBox.innerHTML += `
         <div class="user-message">
@@ -19,9 +18,6 @@ async function sendMessage() {
     `;
 
     input.value = "";
-
-    chatBox.scrollTop =
-        chatBox.scrollHeight;
 
     try {
 
@@ -38,6 +34,7 @@ async function sendMessage() {
                 body: JSON.stringify({
                     question: question
                 })
+
             });
 
         const data =
@@ -54,11 +51,11 @@ async function sendMessage() {
 
     }
 
-    catch(error){
+    catch (error) {
 
         chatBox.innerHTML += `
             <div class="bot-message">
-                Server Error
+                Server error. Please try again.
             </div>
         `;
     }
@@ -66,9 +63,9 @@ async function sendMessage() {
 
 document
 .getElementById("user-input")
-.addEventListener("keypress", function(event){
+.addEventListener("keypress", function(event) {
 
-    if(event.key === "Enter"){
+    if (event.key === "Enter") {
 
         sendMessage();
     }
